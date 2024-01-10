@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
 function Home() {
+	const showBigText = (num) => {
+		const links = document.querySelectorAll(home)
+	}
+
 	return (
 		<>
 			<h1 className='home__title'>
@@ -13,7 +17,7 @@ function Home() {
 			<nav className='home__nav'>
 				<ul className='nav'>
 					<li className='nav__item'>
-						<a data-link='1' href='#'>about</a>
+						<a data-link='1' onMouseOver={(e) => console.log(e.target.dataset.link)} href='#'>about</a>
 					</li>
 					<li className='nav__item'>
 						<a data-link='2' href='#'>portfolio</a>
