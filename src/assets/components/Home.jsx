@@ -1,7 +1,33 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 function Home() {
-	const showBigText = (num) => {
-		const links = document.querySelectorAll(home)
+	const [links, setLinks] = useState([
+		'about',
+		'portfolio',
+		'experience',
+		'links',
+	])
+	const [bigText, setBigText] = useState([]);
+
+
+
+	const showBigText = (e) => {
+		if (e.type == 'mouseout') {
+			bigText.forEach((item) => {
+				if(item.dataset.text === e.target.dataset.link) {
+					item.style.color = ''
+				}
+			})
+		}
+		if (e.type == 'mouseover') {
+			const bigTexts = document.querySelectorAll('[data-text]');
+			setBigText([...bigTexts])
+			bigText.forEach((item) => {
+				if(item.dataset.text === e.target.dataset.link) {
+					item.style.color = '#4b4b4b1e'
+				}
+			})
+		}
 	}
 
 	return (
@@ -16,25 +42,19 @@ function Home() {
 			</h1>
 			<nav className='home__nav'>
 				<ul className='nav'>
-					<li className='nav__item'>
-						<a data-link='1' onMouseOver={(e) => console.log(e.target.dataset.link)} href='#'>about</a>
-					</li>
-					<li className='nav__item'>
-						<a data-link='2' href='#'>portfolio</a>
-					</li>
-					<li className='nav__item'>
-						<a data-link='3' href='#'>experience</a>
-					</li>
-					<li className='nav__item'>
-						<a data-link='4' href='#'>links</a>
-					</li>
+					{links.map((item, id) => (
+						<li key={id} className='nav__item'>
+							<Link to={item} data-link={id} onMouseOver={showBigText} onMouseOut={showBigText} href='#'>
+								{item}
+							</Link>
+						</li>
+					))}
 				</ul>
 			</nav>
 			<div className='home__wrapper'>
-				<p data-text='1'>about</p>
-				<p data-text='2'>portfolio</p>
-				<p data-text='3'>experience</p>
-				<p data-text='4'>Links</p>
+				{links.map((item, id) => (
+					<p key={id} data-text={id}>{item}</p>
+				))}
 			</div>
 		</>
 	)
