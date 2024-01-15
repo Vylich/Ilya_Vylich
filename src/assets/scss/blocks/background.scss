@@ -6,3 +6,15 @@
 	left: 0;
 	z-index: -1;
 }
+
+.vis {
+  position: relative;
+  top: 0;
+  right: 0;
+	min-width: 50vh;
+	height: 100vh;
+	canvas {
+		min-width: 50vh !important;
+		height: 100vh !important;
+	}
+}
