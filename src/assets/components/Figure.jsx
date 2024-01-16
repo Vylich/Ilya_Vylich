@@ -1,4 +1,4 @@
-import { Cylinder, OrbitControls, Sphere, Torus, Tube } from '@react-three/drei'
+import { OrbitControls, Sphere, Tube } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
 
@@ -9,7 +9,7 @@ function Figure() {
 				<OrbitControls />
 				<directionalLight />
 				<pointLight
-					position={(-30, 0, -5)}
+					position={(1, 1, 3)}
 					power={10.0}
 					color='#ffffff'
 					intensity={10}
@@ -21,10 +21,10 @@ function Figure() {
 }
 
 function GroupFigure() {
-  const curve = new THREE.QuadraticBezierCurve3(new THREE.Vector3(6, 0, 0), new THREE.Vector3(0, -40, 0), new THREE.Vector3(-6, 0, 0))
+  const curve = new THREE.QuadraticBezierCurve3(new THREE.Vector3(2.5, 7.5, 0), new THREE.Vector3(0, -10, 0), new THREE.Vector3(-2.5, 7.5, 0))
 	return (
 		<group>
-			<Sphere position={[6,0,0]} args={[1, 100, 100]}>
+			<Sphere position={[1,2,0]} args={[1, 100, 100]} scale={[0.4, 0.4, 0.4]}>
 				<meshStandardMaterial
 					color='#4b4b4b'
 					emissive='#4b4b4b'
@@ -32,7 +32,7 @@ function GroupFigure() {
 					roughness={0.5}
 				/>
 			</Sphere>
-			<Sphere position={[-6,0,0]} args={[1, 16, 32]} >
+			<Sphere position={[-1,2,0]} args={[1, 16, 32]} scale={[0.4, 0.4, 0.4]}>
 				<meshStandardMaterial
 					color='#4b4b4b'
 					emissive='#4b4b4b'
@@ -40,7 +40,7 @@ function GroupFigure() {
 					roughness={0.5}
 				/>
 			</Sphere>
-      <Tube position={[0,0,0]} args={[curve]}>
+      <Tube position={[0,-1,0]} args={[curve, 100, 1, 20, false]} scale={[0.4, 0.4, 0.4]}>
       <meshStandardMaterial
 					color='#4b4b4b'
 					emissive='#4b4b4b'
