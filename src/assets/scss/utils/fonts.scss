@@ -16,6 +16,23 @@
 }
 
 @font-face {
+	font-family: 'Druk-Wide-Cyr';
+	src: url('../../assets/fonts/Druk-Wide-Medium-Cyr.woff') format('woff'), url('../fonts/Druk-Wide-Medium-Cyr.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Druk-Wide-Cyr';
+	src: url('../../assets/fonts/Druk-Wide-Super-Cyr.woff2') format('woff2'),
+		url('../../assets/fonts/Druk-Wide-Super-Cyr.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
 	font-family: 'Grotesk';
 	src: url('../../assets/fonts/Grotesk.woff2') format('woff2'),
 		url('../../assets/fonts/Grotesk.woff') format('woff');

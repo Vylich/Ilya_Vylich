@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Figure from './Figure'
 
 function About() {
+	const [d, setD] = useState(-10)
+	const f = (e) => {
+		if (e.type == 'mouseout') {
+			setD(-10)
+		}
+		if (e.type == 'mouseover') {
+			setD(7.5)
+		}
+	}
 	return (
 		<>
 			<div className="about__title">
@@ -10,13 +19,14 @@ function About() {
 
 			<div className="about__wrapper">
 				<div className="about__text">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti porro magni iusto, voluptate cumque quae sint, aperiam provident reprehenderit, fugit ipsam nobis ducimus perspiciatis minima! Magnam totam illo fugiat delectus!</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti porro magni iusto, voluptate cumque quae sint, aperiam provident reprehenderit, fugit ipsam nobis ducimus perspiciatis minima! Magnam totam illo fugiat delectus!</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti porro magni iusto, voluptate cumque quae sint, aperiam provident reprehenderit, fugit ipsam nobis ducimus perspiciatis minima! Magnam totam illo fugiat delectus!</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti porro magni iusto, voluptate cumque quae sint, aperiam provident reprehenderit, fugit ipsam nobis ducimus perspiciatis minima! Magnam totam illo fugiat delectus!</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti porro magni iusto, voluptate cumque quae sint, aperiam provident reprehenderit, fugit ipsam nobis ducimus perspiciatis minima! Magnam totam illo fugiat delectus!</p>
+					<p>Привет дорогой друг, меня зовут <span onMouseOver={f} onMouseOut={f}>Илья</span> Вулич, я Frontend-разработчик из города Санкт-Петербург.</p>
+					<p>С детства увлекаюсь компьютерами и технологиями с ними связанными.В 7 лет собрал свой первый компьютер без помощи взрослых и интернета(у меня его не было в то время).</p>
+					<p>На протяжении всей жизни меня окружали компьютеры, железо, софт и благодаря этому проблем с выбором профессии у меня никогда не возникало.</p>
+					<p>В 16 лет я поступил в колледж на специальность Информационные системы и программирование. Учеба не приносила удовольствия и поэтому я благополучно на нее забивал, но фундамент компьютерных технологий так или иначе откладывался у меня в голове. Все координально изменилось во время написания информационной системы на Python Django для защиты дипломного проекта. Именно в тот момент я и влюбился в разработку, я понял что благодаря разработке можно решить кучу проблем как обычных людей так и больших корпораций.</p>
+					<p>Помимо разработки мне безумно нравится ездить верхом на лошадях, ходить в походы с ночевкой в леса, горы и на водоемы.</p>
+					<p>Приятно было познакомиться.</p>
 				</div>
-				<Figure/>
+				<Figure pos={d}/>
 			</div>
 		</>
 	)
